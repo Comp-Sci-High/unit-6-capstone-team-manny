@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/teachers.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="python-logo floating">
+                <span>🐍</span>
+            </div>
+        </div>
+        <div class="app-name">Teacher Roster</div>
+        <div class="nav-links">
+            <a href="/coverage" class="nav-link"><i class="fas fa-chalkboard-teacher"></i>Home</a>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="title">Faculty Directory</h1>
+        
+        <div class="roster-container">
+            <!-- Teacher 1 -->
+            <% for(let i = 0; i < teachers.length; i++){ %>
+            <div class="teacher-card">
+                <img src="<%=teachers.image %>" alt="Sarah Johnson" class="teacher-image">
+                <div class="card-content">
+                    <h2 class="teacher-name"><%=teachers.name %></h2>
+                    <div class="teacher-department"><%=teachers.subject %></div>
+                    <div class="teacher-schedule">
+                        <div class="schedule-title">Teaching Schedule</div>
+                        <% for(let x = 0; x < teachers.classes[0].length; x++){ %>
+                        <div class="schedule-item">
+                            <span class="class-name"><%=teachers.classes[x].name %></span>
+                            <span class="class-period">Period <%=teachers.classes[x].period %></span>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="profile-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>Teacher Roster System &copy; 2023 | Created with ❤️ for educational institutions</p>
+    </footer>
+
+    <script src="/teachers.js"></script>
+</body>
+</html>

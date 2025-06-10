@@ -1,0 +1,374 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0d2418, #1a3a27);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(10, 30, 20, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .python-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+            animation: pulse 2s infinite;
+            border: 2px solid #fff;
+        }
+
+        .python-logo span {
+            font-size: 32px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-name {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .app-name:hover {
+            color: #4CAF50;
+            transform: translateX(-50%) scale(1.05);
+            text-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            position: relative;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+        }
+
+        .nav-link:hover {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 50px auto;
+            padding: 0 30px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 42px;
+            color: white;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            padding: 10px 30px;
+            border-radius: 15px;
+            background: rgba(10, 30, 20, 0.7);
+            border: 2px solid #4CAF50;
+        }
+
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(90deg, #1a3a27, #4CAF50);
+            border-radius: 3px;
+        }
+
+        /* Teacher Roster */
+        .roster-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .teacher-card {
+            position: relative;
+            height: 380px;
+            border-radius: 20px;
+            overflow: hidden;
+            perspective: 1000px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(26, 58, 39, 0.5);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            animation: fadeIn 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .teacher-card:nth-child(1) { animation-delay: 0.1s; }
+        .teacher-card:nth-child(2) { animation-delay: 0.2s; }
+        .teacher-card:nth-child(3) { animation-delay: 0.3s; }
+        .teacher-card:nth-child(4) { animation-delay: 0.4s; }
+        .teacher-card:nth-child(5) { animation-delay: 0.5s; }
+        .teacher-card:nth-child(6) { animation-delay: 0.6s; }
+        .teacher-card:nth-child(7) { animation-delay: 0.7s; }
+        .teacher-card:nth-child(8) { animation-delay: 0.8s; }
+
+        .teacher-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-color: #4CAF50;
+        }
+
+        .teacher-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+            filter: grayscale(20%);
+        }
+
+        .teacher-card:hover .teacher-image {
+            filter: grayscale(0);
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(0deg, rgba(10,30,20,0.95) 0%, transparent 100%);
+            transition: all 0.5s ease;
+        }
+
+        .teacher-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .teacher-card:hover .teacher-name {
+            color: #4CAF50;
+            transform: translateY(-5px);
+        }
+
+        .teacher-department {
+            font-size: 18px;
+            color: #a5d6a7;
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease 0.1s;
+        }
+
+        .teacher-schedule {
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease 0.2s;
+        }
+
+        .schedule-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4CAF50;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid rgba(76, 175, 80, 0.5);
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .class-name {
+            color: #fff;
+        }
+
+        .class-period {
+            color: #a5d6a7;
+            font-weight: 600;
+        }
+
+        /* Hover effects to show details */
+        .teacher-card:hover .teacher-department,
+        .teacher-card:hover .teacher-schedule {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Profile icon */
+        .profile-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(10,30,20,0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #4CAF50;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.4s ease 0.3s;
+        }
+
+        .teacher-card:hover .profile-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(10, 30, 20, 0.9);
+            color: #a5d6a7;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+            border-top: 2px solid #4CAF50;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(76, 175, 80, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .app-name {
+                font-size: 24px;
+            }
+            
+            .nav-link {
+                font-size: 18px;
+                padding: 8px 16px;
+            }
+            
+            .title {
+                font-size: 36px;
+            }
+            
+            .roster-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .app-name {
+                position: relative;
+                left: 0;
+                transform: none;
+                margin: 10px 0;
+                text-align: center;
+                width: 100%;
+            }
+            
+            .title {
+                font-size: 32px;
+                width: 90%;
+            }
+            
+            .roster-container {
+                grid-template-columns: 1fr;
+            }
+        }

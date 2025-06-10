@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/absent.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="python-logo floating">
+                <span>🐍</span>
+            </div>
+            <div class="app-name">Teacher Management</div>
+        </div>
+        <div class="nav-links">
+            <a href="/teachers" class="nav-link"><i class="fas fa-chalkboard-teacher"></i>Teachers</a>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="title">Teacher Management System</h1>
+        
+        <div class="forms-container">
+            <!-- Report Absence Form -->
+            <section class="form-section">
+                <div class="form-header">
+                    <i class="fas fa-user-times"></i>
+                    <h2>Report Teacher Absence</h2>
+                </div>
+                <div class="form-content">
+                    <form id="absence-form">
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-user"></i>First Name</label>
+                            <input type="text" name="first" class="form-input" id="absent-first-name" placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-user"></i>Last Name</label>
+                            <input type="text" class="form-input" name="last" id="absent-last-name" placeholder="Enter last name" required>
+                        </div>
+                        <button type="submit" class="form-button" id="submit-absence">
+                            <i class="fas fa-paper-plane"></i> Report Absence
+                        </button>
+                        <div class="status-message" id="absence-status"></div>
+                    </form>
+                </div>
+            </section>
+            
+            <!-- Add Teacher Form -->
+            <section class="form-section">
+                <div class="form-header">
+                    <i class="fas fa-user-plus"></i>
+                    <h2>Add New Teacher</h2>
+                </div>
+                <div class="form-content">
+                    <form id="add-teacher-form">
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-user"></i>First Name</label>
+                            <input type="text" class="form-input" name="first" id="add-first-name" placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-user"></i>Last Name</label>
+                            <input type="text" class="form-input" id="add-last-name" placeholder="Enter last name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-book"></i>Main Subject</label>
+                            <input type="text" class="form-input" name="subject" id="add-subject" placeholder="Enter subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-book"></i>Image</label>
+                            <input type="text" class="form-input" name="image" id="add-subject" placeholder="Enter Image URL" required>
+                        </div>
+                        <button type="submit" class="form-button" id="add-teacher">
+                            <i class="fas fa-plus-circle"></i> Add Teacher
+                        </button>
+                        <div class="status-message" id="add-status"></div>
+                    </form>
+                </div>
+            </section>
+            
+            <!-- Remove Teacher Form -->
+            <section class="form-section">
+                <div class="form-header">
+                    <i class="fas fa-user-minus"></i>
+                    <h2>Remove Teacher</h2>
+                </div>
+                <div class="form-content">
+                    <form id="remove-teacher-form">
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-user"></i>First Name</label>
+                            <input type="text" class="form-input" id="remove-first-name" placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-user"></i>Last Name</label>
+                            <input type="text" class="form-input" id="remove-last-name" placeholder="Enter last name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-exclamation-triangle"></i>Reason</label>
+                            <select class="form-select" id="remove-reason" required>
+                                <option value="">Select reason</option>
+                                <option value="resignation">Resignation</option>
+                                <option value="retirement">Retirement</option>
+                                <option value="transfer">Transfer</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="form-button" id="remove-teacher">
+                            <i class="fas fa-trash-alt"></i> Remove Teacher
+                        </button>
+                        <div class="status-message" id="remove-status"></div>
+                    </form>
+                </div>
+            </section>
+            
+            <!-- Update Schedule Form -->
+            <section class="form-section">
+                <div class="form-header">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h2>Update Teacher Schedule</h2>
+                </div>
+                <div class="form-content">
+                    <form id="update-schedule-form">
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-user"></i>First Name</label>
+                            <input type="text" class="form-input" id="update-first-name" placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-user"></i>Last Name</label>
+                            <input type="text" class="form-input" id="update-last-name" placeholder="Enter last name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-clock"></i>Period</label>
+                            <select class="form-select" id="update-period" required>
+                                <option value="">Select period</option>
+                                <option value="1">Period 1</option>
+                                <option value="2">Period 2</option>
+                                <option value="3">Period 3</option>
+                                <option value="4">Period 4</option>
+                                <option value="5">Period 5</option>
+                                <option value="6">Period 6</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-chalkboard"></i>Current Class</label>
+                            <input type="text" class="form-input" id="current-class" placeholder="Enter current class" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-exchange-alt"></i>New Class</label>
+                            <input type="text" class="form-input" id="new-class" placeholder="Enter new class" required>
+                        </div>
+                        <button type="submit" class="form-button" id="update-schedule">
+                            <i class="fas fa-sync-alt"></i> Update Schedule
+                        </button>
+                        <div class="status-message" id="update-status"></div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>Teacher Management System &copy; 2023 | Created with ❤️ for educational institutions</p>
+    </footer>
+    
+    <script src="/absent.js"></script>
+</body>
+</html>
